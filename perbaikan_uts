@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+class perbaikanUts {
+    public static void main(String[] args) {
+        System.out.println("\n== SOAL 1 ==\n");
+        System.out.println(
+                "Bismillahirrahmaanirrahiim, Saya Farhan Munir berjanji dan bersungguh-sungguh semaksimal mungkin mengerjakan UTS ini dengan usaha sendiri, tanpa sekalipun melihat pekerjaan teman Saya, serta mematuhi tata tertib selama ujian. Jika Saya melanggar janji ini, Saya berani menanggung resikonya.");
+
+        System.out.println("\n== SOAL 2 ==\n");
+        System.out.println("====== Program Hitung Honor Karyawan Kontrak ======");
+        System.out.println("PT. ROCK ADVENTURE");
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Nama Karyawan : ");
+        String nama = input.nextLine();
+
+        System.out.print("Golongan (1/2/3) : ");
+        int golongan = input.nextInt();
+
+        System.out.println("Pendidikan : ");
+        System.out.println("1.SMU");
+        System.out.println("2.D3");
+        System.out.println("3.S1");
+        System.out.print("Pendidikan (1/2/3) = ");
+        int pendidikan = input.nextInt();
+
+        System.out.print("Jumlah Jam Kerja : ");
+        int jamKerja = input.nextInt();
+
+        int gaji = 3000000;
+
+        double tunjanganjabatan = 0;
+        if (golongan == 1) {
+            tunjanganjabatan = 5.0 * gaji;
+        } else if (golongan == 2) {
+            tunjanganjabatan = 10.0 * gaji;
+        } else if (golongan == 3) {
+            tunjanganjabatan = 15.0 * gaji;
+        } else {
+            System.out.println("Tidak Valid");
+        }
+        double tunjanganPendidikan = 0;
+        if (pendidikan == 1) {
+            tunjanganPendidikan = 2.5 * gaji;
+        } else if (pendidikan == 2) {
+            tunjanganPendidikan = 5.0 * gaji;
+        } else if (pendidikan == 3) {
+            tunjanganPendidikan = 7.5 * gaji;
+        } else {
+            System.out.println("Tidak Valid");
+        }
+
+        int jamLembur = Math.max(jamKerja - 8, 0);
+        int honorLembur = 2500;
+        int totalHonorLembur = jamLembur * honorLembur;
+
+        int honorTotal = gaji + (int) tunjanganjabatan + (int) tunjanganPendidikan + totalHonorLembur;
+
+        System.out.println("Karyawan yang bernama : " + nama);
+        System.out.println("Honor yang diterima");
+        System.out.println("Honor Tetap Rp. " + gaji);
+        System.out.println("Tunjangan jabatan Rp. " + (int) tunjanganjabatan);
+        System.out.println("Tunjangan Pendidikan Rp. " + (int) tunjanganPendidikan);
+        System.out.println("Honor Lembur Rp. " + totalHonorLembur);
+        System.out.println("---------------------------------------+");
+        System.out.println("Honor Yang Diterima Rp. " + honorTotal);
+
+        System.out.print("Program hitung honor diulang (Y/N)? ");
+        String ulang = input.next();
+
+        while (ulang.equals("Y")) {
+            System.out.println();
+            main(args);
+        }
+    }
+}
